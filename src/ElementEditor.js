@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { UnitLength, ViewBox, Length, Color } from './edit-types';
+import ElementAdder from './ElementAdder';
 import './ElementEditor.css';
 
 const hasChildren = {
@@ -54,8 +55,12 @@ export default class ElementEditor extends React.Component {
           !!hasChildren[ln] &&
             <div className="children">
               {
-                children(el).map((k, i) => <ElementEditor el={k} registry={registry} key={i}/>)
+                children(el).map((k, i) => [
+                  <ElementAdder parent={el} refPoint={k} key={`ea-${i}`}/>,
+                  <ElementEditor el={k} registry={registry} key={i}/>
+                ])
               }
+              <ElementAdder parent={el}/>
             </div>
         }
       </div>
