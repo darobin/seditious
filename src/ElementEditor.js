@@ -1,6 +1,7 @@
 
 
 import React from 'react';
+import shortid from 'shortid';
 import { UnitLength, ViewBox, Length, Color } from './edit-types';
 import ElementAdder from './ElementAdder';
 import './ElementEditor.css';
@@ -32,12 +33,14 @@ export default class ElementEditor extends React.Component {
   }
   componentDidMount () {
     this.props.registry.set(this.props.el, this);
+    this.props.names.set(this.props.el, shortid.generate());
   }
   componentWillUnmount () {
     this.props.registry.delete(this.props.el);
+    this.props.names.delete(this.props.el);
   }
   render () {
-    let { el, registry } = this.props
+    let { el, registry, names } = this.props
       , ln = el.localName
       , em = editMap[ln]
     ;
@@ -55,9 +58,9 @@ export default class ElementEditor extends React.Component {
           !!hasChildren[ln] &&
             <div className="children">
               {
-                children(el).map((k, i) => [
-                  <ElementAdder parent={el} refPoint={k} key={`ea-${i}`}/>,
-                  <ElementEditor el={k} registry={registry} key={i}/>
+                children(el).map(k => [
+                  <ElementAdder parent={el} refPoint={k} key={`ea-${names.get(k)}`}/>,
+                  <ElementEditor el={k} registry={registry} names={names} key={names.get(k)}/>
                 ])
               }
               <ElementAdder parent={el}/>
@@ -71,6 +74,7 @@ const { object } = React.PropTypes;
 ElementEditor.propTypes = {
   el:       object.isRequired,
   registry: object.isRequired,
+  names:    object.isRequired,
 };
 
 function children (el) {

@@ -7,6 +7,7 @@ export default class Tree extends React.Component {
   constructor (props) {
     super(props);
     this.registry = new Map();
+    this.names = new Map();
     this.mo = new MutationObserver((mutations) => {
       mutations.forEach(mr => {
         let comp = this.registry.get(mr.target);
@@ -22,7 +23,7 @@ export default class Tree extends React.Component {
   render () {
     return (
       <div className="tree">
-        <ElementEditor el={this.props.el} registry={this.registry}/>
+        <ElementEditor el={this.props.el} registry={this.registry} names={this.names}/>
       </div>
     );
   }

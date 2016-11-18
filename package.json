@@ -2,6 +2,7 @@
   "name": "seditious",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://darobin.github.io/seditious/build",
   "eslintConfig": {
     "extends": "scienceai"
   },
@@ -11,7 +12,8 @@
   "dependencies": {
     "eslint-config-scienceai": "2.4.0",
     "react": "15.4.0",
-    "react-dom": "15.4.0"
+    "react-dom": "15.4.0",
+    "shortid": "2.2.6"
   },
   "scripts": {
     "start": "react-scripts start",
