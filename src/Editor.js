@@ -30,10 +30,10 @@ Editor.propTypes = {
 Editor.defaultProps = {
   svg: `<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500">
           <g>
-            <rect x="10" y="10" width="250" height="100" fill="#f00"/>
-            <rect x="100" y="300" width="20" height="200" fill="#0f0"/>
+            <rect x="10" y="10" width="250" height="100" fill="#ff0000"/>
+            <rect x="100" y="300" width="20" height="200" fill="#00ff00"/>
             <g>
-              <rect x="150" y="150" width="300" height="200" fill="#00f"/>
+              <rect x="150" y="150" width="300" height="200" fill="#0000ff"/>
             </g>
           </g>
         </svg>`,

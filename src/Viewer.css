@@ -4,3 +4,6 @@
   flex-basis: 50%;
   background: #fff;
 }
+.viewer svg {
+  border: 1px solid black;
+}

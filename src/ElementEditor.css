@@ -1,0 +1,20 @@
+
+.edit-zone {
+  background: #fff;
+  margin-bottom: 0.5rem;
+  padding: 0 0.5rem 0.5rem 0.5rem;
+}
+.edit-zone input[type="text"],
+.edit-zone input[type="number"] {
+  width: 5ch;
+  text-align: right;
+  margin-right: 1ch;
+}
+.edit-zone__name {
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+.children {
+  border-left: 2px solid #ffe300;
+  padding-left: 0.5rem;
+}
