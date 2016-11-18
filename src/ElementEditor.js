@@ -29,8 +29,14 @@ export default class ElementEditor extends React.Component {
     super();
     this.state = {};
   }
+  componentDidMount () {
+    this.props.registry.set(this.props.el, this);
+  }
+  componentWillUnmount () {
+    this.props.registry.delete(this.props.el);
+  }
   render () {
-    let { el } = this.props
+    let { el, registry } = this.props
       , ln = el.localName
       , em = editMap[ln]
     ;
@@ -48,7 +54,7 @@ export default class ElementEditor extends React.Component {
           !!hasChildren[ln] &&
             <div className="children">
               {
-                children(el).map((kid, idx) => <ElementEditor el={kid} key={idx}/>)
+                children(el).map((k, i) => <ElementEditor el={k} registry={registry} key={i}/>)
               }
             </div>
         }
@@ -58,7 +64,8 @@ export default class ElementEditor extends React.Component {
 }
 const { object } = React.PropTypes;
 ElementEditor.propTypes = {
-  el:  object,
+  el:       object.isRequired,
+  registry: object.isRequired,
 };
 
 function children (el) {
