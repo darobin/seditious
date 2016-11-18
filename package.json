@@ -2,10 +2,14 @@
   "name": "seditious",
   "version": "0.1.0",
   "private": true,
+  "eslintConfig": {
+    "extends": "scienceai"
+  },
   "devDependencies": {
     "react-scripts": "0.7.0"
   },
   "dependencies": {
+    "eslint-config-scienceai": "2.4.0",
     "react": "15.4.0",
     "react-dom": "15.4.0"
   },

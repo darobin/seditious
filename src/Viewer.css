@@ -1,0 +1,6 @@
+
+.viewer {
+  overflow: auto;
+  flex-basis: 50%;
+  background: #fff;
+}
