@@ -2,7 +2,7 @@
   "name": "seditious",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://darobin.github.io/seditious/build",
+  "homepage": "http://darobin.github.io/seditious",
   "eslintConfig": {
     "extends": "scienceai"
   },
